@@ -1,0 +1,9 @@
+:m0a.x02.getPrivileges
+::================================
+echo Set UAC = CreateObject^("Shell.Application"^) > "%vbsGetPrivileges%"
+echo UAC.ShellExecute "%~f0", "max", "", "runas", 3 >> "%vbsGetPrivileges%"
+start /w "%SystemRoot%\System32\WScript.exe" "%vbsGetPrivileges%"
+echo CreateObject^("Wscript.Shell"^).Run WScript.Arguments^(0^), 0, True > "%vbsGetPrivileges%"
+if %errorlevel% neq 0 (
+exit
+)
